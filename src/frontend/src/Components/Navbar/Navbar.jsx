@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <aside className="menu-area">
       <nav className="menu">
-        <a href="/">
+        <a href="#/">
           <i className="fa fa-home"></i>
           Início
         </a>
