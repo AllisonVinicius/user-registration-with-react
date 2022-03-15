@@ -1,11 +1,13 @@
 import React from "react";
-// import logo from "../../assets/img/t.png";
+import { Link } from "react-router-dom";
+import logo from "../../assets/img/companies.svg";
 
-const Logo = () => {
+const Logo = props => {
   return (
     <aside className="logo">
-      <a href="*" className="logo"></a>
-      {/* <img src={logo} alt="logo" /> */}
+      <Link to="/" className="logo">
+        <img src={logo} alt="logo" />
+      </Link>
     </aside>
   );
 };
