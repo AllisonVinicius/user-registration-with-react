@@ -33,6 +33,13 @@ export default class User extends Component {
     });
   }
 
+  getUpdateList(user) {
+    const list = this.state.list.filter(p => p.id !== user.id);
+    list.unshift(user);
+
+    return list;
+  }
+
   render() {
     return <Main {...headerProps}>Cadastro de usuário</Main>;
   }
