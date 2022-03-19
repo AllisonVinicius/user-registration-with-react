@@ -63,6 +63,31 @@ export default class User extends Component {
               />
             </div>
           </div>
+
+          <div className="col-12 col-md-6">
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                value={this.state.user.email}
+                onChange={e => this.updateField(e)}
+                placeholder="Digite o email"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="row">
+          <div className="col-12 d-flex justify-content-end">
+            <button className="btn btn-primary" onClick={e => this.save(e)}>
+              Salvar
+            </button>
+            <button className="btn btn-secondary" onClick={e => this.clear(e)}>
+              Cancelar
+            </button>
+          </div>
         </div>
       </div>
     );
