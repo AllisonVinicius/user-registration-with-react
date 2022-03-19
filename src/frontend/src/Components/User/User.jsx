@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Component } from "react";
 import Main from "../Main/Main";
 
@@ -23,10 +24,16 @@ export default class User extends Component {
 
   save() {
     const user = this.state.user;
-    const method = user.id;
+    const method = user.id ? "put" : "post";
+    const url = user.id ? `${baseURL}/${user.id}` : baseURL;
+
+    axios[method](url, user).then(resp => {
+      const list = this.getUpdateList(resp.data);
+      this.setState({ user: initialState.user, list });
+    });
   }
 
   render() {
-    return <Main {...headerProps}>cadastro de usuário</Main>;
+    return <Main {...headerProps}>Cadastro de usuário</Main>;
   }
 }
