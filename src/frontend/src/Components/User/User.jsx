@@ -46,6 +46,28 @@ export default class User extends Component {
     this.setState({ user });
   }
 
+  renderForm() {
+    return (
+      <div className="form">
+        <div className="row">
+          <div className="col-12 col-md-6">
+            <div className="form-group">
+              <label>Nome</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                value={this.state.user.name}
+                onChange={e => this.updateField(e)}
+                placeholder="Digite o nome ..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return <Main {...headerProps}>Cadastro de usuário</Main>;
   }
