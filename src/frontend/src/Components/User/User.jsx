@@ -94,6 +94,6 @@ export default class User extends Component {
   }
 
   render() {
-    return <Main {...headerProps}>Cadastro de usuário</Main>;
+    return <Main {...headerProps}>{this.renderForm()}</Main>;
   }
 }
