@@ -103,6 +103,10 @@ export default class User extends Component {
     this.setState({ user });
   }
 
+  remove(user) {
+    axios.delete(`${baseURL}/${user.id}`);
+  }
+
   render() {
     return <Main {...headerProps}>{this.renderForm()}</Main>;
   }
