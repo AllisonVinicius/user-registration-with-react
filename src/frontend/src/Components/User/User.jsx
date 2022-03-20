@@ -18,6 +18,12 @@ const initialState = {
 export default class User extends Component {
   state = { ...initialState };
 
+  componentWillWount() {
+    axios(baseURL).then(resp => {
+      this.setState({ list: resp.data });
+    });
+  }
+
   clear() {
     this.setState({ user: initialState.user });
   }
@@ -91,6 +97,10 @@ export default class User extends Component {
         </div>
       </div>
     );
+  }
+
+  load(user) {
+    this.setState({ user });
   }
 
   render() {
