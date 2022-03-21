@@ -39,7 +39,8 @@ export default class User extends Component {
     });
   }
 
-  getUpdateList(user) {
+  getUpdateList(user, add) {
+    add = true;
     const list = this.state.list.filter(p => p.id !== user.id);
     if (user) list.unshift(user);
 
@@ -105,7 +106,7 @@ export default class User extends Component {
 
   remove(user) {
     axios.delete(`${baseURL}/${user.id}`).then(resp => {
-      const list = this.getUpdateList(null);
+      const list = this.getUpdateList(user, false);
       this.setState({ list });
     });
   }
@@ -150,6 +151,11 @@ export default class User extends Component {
     });
   }
   render() {
-    return <Main {...headerProps}>{this.renderForm()}</Main>;
+    return (
+      <Main {...headerProps}>
+        {this.renderForm()}
+        {this.renderRow()}
+      </Main>
+    );
   }
 }
