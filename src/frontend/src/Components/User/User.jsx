@@ -120,8 +120,34 @@ export default class User extends Component {
             <th>Ações</th>
           </tr>
         </thead>
+        <tbody>{this.renderRow()}</tbody>
       </table>
     );
+  }
+
+  renderRow() {
+    return this.state.list.map(user => {
+      return (
+        <tr key={user.id}>
+          <td>{user.name}</td>
+          <td>{user.email}</td>
+          <td>
+            <button
+              className="btn btn-warning"
+              onClick={e => this.load(e.user)}
+            >
+              <i className="fa fa-pincel"></i>
+            </button>
+            <button
+              className="btn btn-danger ml-2"
+              onClick={e => this.remove(e.user)}
+            >
+              <i className="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      );
+    });
   }
   render() {
     return <Main {...headerProps}>{this.renderForm()}</Main>;
