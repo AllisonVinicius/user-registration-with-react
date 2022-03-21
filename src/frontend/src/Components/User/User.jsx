@@ -110,6 +110,19 @@ export default class User extends Component {
     });
   }
 
+  renderTable() {
+    return (
+      <table className="table mt-4">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-Mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+      </table>
+    );
+  }
   render() {
     return <Main {...headerProps}>{this.renderForm()}</Main>;
   }
