@@ -41,7 +41,7 @@ export default class User extends Component {
 
   getUpdateList(user) {
     const list = this.state.list.filter(p => p.id !== user.id);
-    list.unshift(user);
+    if (user) list.unshift(user);
 
     return list;
   }
@@ -104,7 +104,10 @@ export default class User extends Component {
   }
 
   remove(user) {
-    axios.delete(`${baseURL}/${user.id}`);
+    axios.delete(`${baseURL}/${user.id}`).then(resp => {
+      const list = this.getUpdateList(null);
+      this.setState({ list });
+    });
   }
 
   render() {
