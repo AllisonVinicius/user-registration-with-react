@@ -2,7 +2,7 @@
   --bg-dark: #1a2f3a;
 
   --logo-height: 100px;
-  --header-height: 100px;
+  --header-height: 70px;
   --menu-top-height: 100px;
   --aside-width: 225px;
   --footer-height: 40px;
@@ -66,5 +66,21 @@ footer.footer {
       "menu menu"
       "content content"
       "footer footer";
+  }
+}
+
+@media (max-width: 576px) {
+  .app {
+    grid-template-row:
+      var(--logo-height)
+      var(--menu-top-height)
+      1fr
+      var(--footer-height);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "menu"
+      "content"
+      "footer";
   }
 }
